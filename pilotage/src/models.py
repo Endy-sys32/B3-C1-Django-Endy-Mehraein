@@ -38,5 +38,3 @@ class Reservation(models.Model):
     heure_deb_reservation = models.DateTimeField()
     heure_fin_reservation = models.DateTimeField()
 
-    def __str__(self):
-        return self.user
