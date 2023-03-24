@@ -6,3 +6,12 @@ def index(request):
 
 def reservation_index(request):
     return render(request, 'reservation/index.html')
+
+def auto_index(request):
+    return render(request, 'automobile/index.html')
+
+def avia_index(request):
+    return render(request, 'aviation/index.html')
+
+def compte_index(request):
+    return render(request, 'compte/index.html')
