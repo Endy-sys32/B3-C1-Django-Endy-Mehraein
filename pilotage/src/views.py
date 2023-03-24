@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 def index(request):
@@ -14,4 +15,15 @@ def avia_index(request):
     return render(request, 'aviation/index.html')
 
 def compte_index(request):
-    return render(request, 'compte/index.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            message = "Nom d'utilisateur ou mot de passe incorrect."
+    else:
+        message = ""
+    return render(request, 'compte/index.html', {'message': message})
