@@ -27,8 +27,6 @@ class User(models.Model):
     login_user = models.CharField(max_length=400)
     password_user = models.CharField(max_length=300)
 
-    def __str__(self):
-        return self.nom_user
 
 class Reservation(models.Model):
     id_reservation = models.IntegerField(primary_key=True)
@@ -38,5 +36,3 @@ class Reservation(models.Model):
     heure_deb_reservation = models.DateTimeField()
     heure_fin_reservation = models.DateTimeField()
 
-    def __str__(self):
-        return self.user
