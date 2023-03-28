@@ -16,9 +16,12 @@ class VehiculePilotage(models.Model):
         return self.model_vehicule
 
 class CoursPilotage(models.Model):
+    titre_cours = models.CharField(max_length=400, default= 'Cours de Pilotage')
     id_cours = models.IntegerField(primary_key=True)
     id_type = models.ForeignKey(TypePilotage, on_delete=models.CASCADE)
     id_vehicule = models.ForeignKey(VehiculePilotage, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.titre_cours
 
 class User(models.Model):
     id_user = models.IntegerField(primary_key=True)

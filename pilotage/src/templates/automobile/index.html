@@ -4,5 +4,12 @@
 {% block corp %}
     <section>
     <h2>Automobile</h2>
+    {% for cour in cours %}
+            <h4>
+                Numéro du cours : {{ cour.id_cours }}<br/>
+                Type de cours : {{ cour.id_type }}<br/>
+                Véhicule : {{ cour.id_vehicule }}<br/>
+            </h4>
+    {% endfor %}
     </section>
 {% endblock %}
