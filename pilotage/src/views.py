@@ -1,18 +1,28 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Reservation,CoursPilotage
 
 def index(request):
     return render(request, 'index.html')
 
 def reservation_index(request):
-    return render(request, 'reservation/index.html')
+    reservations = Reservation.objects.all()
+    data = {'reservations':reservations}
+    return render(request, 'reservation/index.html', data)
+
+def reservation_index_id(request, reservation_id):
+    return render(request, 'reservation/reservation.html')
 
 def auto_index(request):
-    return render(request, 'automobile/index.html')
+    cours = CoursPilotage.objects.all()
+    data = {'cours':cours}
+    return render(request, 'automobile/index.html', data)
 
 def avia_index(request):
-    return render(request, 'aviation/index.html')
+    cours = CoursPilotage.objects.all()
+    data = {'cours': cours}
+    return render(request, 'aviation/index.html', data)
 
 def compte_index(request):
     if request.method == 'POST':

@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonage du dépôt') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Endy-sys32/B3-C1-Django-Endy-Mehraein.git'
+            }
+        }
+        stage('Installation des dépendances') {
+            steps {
+                sh 'pip3 install django-admin'
+            }
+        }
+        stage('Tests unitaires') {
+            steps {
+                sh 'cd pilotage/src/'
+                sh 'python3 -m unittest test.py'
+            }
+        }
+    }
+}
