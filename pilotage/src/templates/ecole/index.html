@@ -1,0 +1,17 @@
+{% extends 'block/base.html' %}
+{% block title %} FF {% endblock %}
+
+{% block corp %}
+    <section>
+    <h2>Les Ecoles :</h2>
+    {% for ecole in ecoles %}
+        <h4>
+            <a href="../ecole/{{ ecole.id_ecole }}">
+                Ecole Numéro : {{ ecole.id_ecole }}<br/>
+                Ecole : {{ ecole.nom_ecole }}<br/>
+                Adresse Ecole : {{ ecole.adresse_ecole }}<br/>
+            </a>
+        </h4>
+    {% endfor %}
+    </section>
+{% endblock %}

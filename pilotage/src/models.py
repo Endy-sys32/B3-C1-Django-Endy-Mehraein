@@ -3,7 +3,6 @@ from django.db import models
 class TypePilotage(models.Model):
     id_type = models.IntegerField(primary_key=True)
     libelle_pilotage = models.CharField(max_length=200)
-
     def __str__(self):
         return self.libelle_pilotage
 
@@ -15,11 +14,19 @@ class VehiculePilotage(models.Model):
     def __str__(self):
         return self.model_vehicule
 
+class EcolePilotage(models.Model):
+    id_ecole = models.IntegerField(primary_key=True)
+    nom_ecole = models.CharField(max_length=300, default="Epsi")
+    adresse_ecole = models.CharField(max_length=400)
+    def __str__(self):
+        return self.nom_ecole
+
 class CoursPilotage(models.Model):
     titre_cours = models.CharField(max_length=400, default= 'Cours de Pilotage')
     id_cours = models.IntegerField(primary_key=True)
     id_type = models.ForeignKey(TypePilotage, on_delete=models.CASCADE)
     id_vehicule = models.ForeignKey(VehiculePilotage, on_delete=models.CASCADE)
+    id_ecole = models.ForeignKey(EcolePilotage, on_delete=models.CASCADE)
     def __str__(self):
         return self.titre_cours
 
