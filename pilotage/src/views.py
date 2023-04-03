@@ -12,7 +12,11 @@ def reservation_index(request):
     return render(request, 'reservation/index.html', data)
 
 def reservation_index_id(request, reservation_id):
-    return render(request, 'reservation/reservation.html')
+    reservation = Reservation.objects.get(id_reservation=reservation_id)
+    data = {
+        'reservation':reservation,
+    }
+    return render(request, 'reservation/reservation.html', data)
 
 def auto_index(request):
     cours = CoursPilotage.objects.all()

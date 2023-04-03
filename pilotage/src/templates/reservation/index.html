@@ -4,12 +4,14 @@
 {% block corp %}
     <section>
     <h2>Les Réservations :</h2>
+    <h3><a href="#" style="text-decoration: none; color: black">Faire une réservation</a></h3>
     {% for reservation in reservations %}
         <h4>
-            Réservations numéro : {{ reservation.id_reservation }}<br/>
-            Titre du Cours : {{ reservation.cours }}<br/>
-            Utilisateurs Réserver : {{ reservation.user }}<br/>
-            Numéro de Réservation : {{ reservation.id_reservation }}<br/>
+            <a href="../reservation/{{ reservation.id_reservation }}">
+                Cours : {{ reservation.date_reservation }}<br/>
+                Utilisateurs Réserver : {{ reservation.user }}<br/>
+                Numéro de Réservation : {{ reservation.id_reservation }}<br/>
+            </a>
         </h4>
     {% endfor %}
     </section>
