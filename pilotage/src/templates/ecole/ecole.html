@@ -1,0 +1,19 @@
+{% extends 'block/base.html' %}
+
+{% block corp %}
+    <section>
+        <h2><a href="../" class="retour">Retour</a></h2>
+        <h3></h3>
+        <h2 style="text-align: center">Ecole {{ ecole.nom_ecole }}</h2>
+        {% for cour in cours %}
+            <h4><a href="#" style="text-decoration: none; color: black" >
+                Intitulé du cours : {{cour.titre_cours }}<br/>
+                Activité : {{cour.id_type }}<br/>
+                Véhicule utilisé : {{cour.id_vehicule }}<br/>
+            </a></h4>
+        {% endfor %}
+
+
+
+    </section>
+{% endblock %}

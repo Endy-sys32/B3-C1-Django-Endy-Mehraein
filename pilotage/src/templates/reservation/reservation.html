@@ -1,15 +1,17 @@
 {% extends 'block/base.html' %}
-{% block title %} FF {% endblock %}
 
 {% block corp %}
     <section>
         <h2><a href="../" style="text-decoration: none; color: black">Retour</a></h2>
 {#        <h2>Réservation de l'utilisateur {{ reservation.user }}</h2>#}
         <h2>{{ reservation.cours }}</h2>
-        Réserver par : {{ reservation.user }}<br/>
-        Date : {{ reservation.date_reservation}}<br/>
-        Heure de début du cours {{ reservation.heure_deb_reservation }}<br/>
-        Heure de fin du cours {{ reservation.heure_fin_reservation }}<br/>
+
+        <h4>
+            Réserver par : {{ reservation.user }}<br/>
+            Date : {{ reservation.date_reservation}}<br/>
+            Heure de début du cours {{ reservation.heure_deb_reservation }}<br/>
+            Heure de fin du cours {{ reservation.heure_fin_reservation }}<br/>
+        </h4>
 
 
     </section>

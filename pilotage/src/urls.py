@@ -8,4 +8,6 @@ urlpatterns = [
     path('automobile/',views.auto_index, name='auto_index'),
     path('aviation/',views.avia_index, name='avia_index'),
     path('compte/',views.compte_index, name='compte_index'),
+    path('ecole/',views.ecole_index, name='ecole_index'),
+    path('ecole/<int:ecole_id>/',views.ecole_index_id, name='ecole_index_id'),
 ]

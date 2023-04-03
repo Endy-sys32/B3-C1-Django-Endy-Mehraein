@@ -4,12 +4,21 @@
 {% block corp %}
     <section>
     <h2>Automobile</h2>
-    {% for cour in cours %}
             <h4>
-                Numéro du cours : {{ cour.id_cours }}<br/>
-                Type de cours : {{ cour.id_type }}<br/>
-                Véhicule : {{ cour.id_vehicule }}<br/>
+                Numéro du cours : {{ coursPilotage1.id_cours }}<br/>
+                Type de cours : {{ coursPilotage1.id_type }}<br/>
+                Véhicule : {{ coursPilotage1.id_vehicule }}<br/>
             </h4>
-    {% endfor %}
+            <h4>
+                Numéro du cours : {{ coursPilotage2.id_cours }}<br/>
+                Type de cours : {{ coursPilotage2.id_type }}<br/>
+                Véhicule : {{ coursPilotage2.id_vehicule }}<br/>
+            </h4>
+            <h4>
+                Numéro du cours : {{ coursPilotage3.id_cours }}<br/>
+                Type de cours : {{ coursPilotage3.id_type }}<br/>
+                Véhicule : {{ coursPilotage3.id_vehicule }}<br/>
+            </h4>
+
     </section>
 {% endblock %}
