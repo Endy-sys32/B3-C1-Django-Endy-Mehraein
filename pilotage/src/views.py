@@ -2,6 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Reservation,CoursPilotage,EcolePilotage
+from .form import CreateReservation
 
 def index(request):
     return render(request, 'index.html')
@@ -23,6 +24,23 @@ def reservation_index_id(request, reservation_id):
     }
     return render(request, 'reservation/reservation.html', data)
 
+def reserver_cours_id(request, cours_id):
+    cours_data = CoursPilotage.objects.get(id_cours=cours_id)
+    if request.method == 'POST':
+        form = CreateReservation(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            cours = form.cleaned_data.get('cours')
+            date_reservation = form.cleaned_data.get('date_reservation')
+            heure_deb_reservation = form.cleaned_data.get('heure_deb_reservation')
+            heure_fin_reservation = form.cleaned_data.get('heure_fin_reservation')
+            return redirect('reservation_index')
+
+    else:
+        form = CreateReservation()
+        return render(request, 'reservation/reserver.html', {'form':form})
+
 def ecole_index_id(request, ecole_id):
     ecole = EcolePilotage.objects.get(id_ecole=ecole_id)
     cours = CoursPilotage.objects.filter(id_ecole=ecole_id)
@@ -31,6 +49,15 @@ def ecole_index_id(request, ecole_id):
         'cours':cours,
     }
     return render(request, 'ecole/ecole.html', data)
+
+def cour_ecole_index(request, ecole_id, cours_id):
+    ecole = EcolePilotage.objects.get(id_ecole=ecole_id)
+    cours = CoursPilotage.objects.get(id_cours=cours_id)
+    data = {
+        'ecole':ecole,
+        'cours':cours,
+    }
+    return render(request, 'ecole/cours.html', data)
 
 def auto_index(request):
     cour1 = CoursPilotage.objects.get(id_type= 1)

@@ -27,6 +27,7 @@ class CoursPilotage(models.Model):
     id_type = models.ForeignKey(TypePilotage, on_delete=models.CASCADE)
     id_vehicule = models.ForeignKey(VehiculePilotage, on_delete=models.CASCADE)
     id_ecole = models.ForeignKey(EcolePilotage, on_delete=models.CASCADE)
+    descriptif_cours = models.TextField(default="")
     def __str__(self):
         return self.titre_cours
 

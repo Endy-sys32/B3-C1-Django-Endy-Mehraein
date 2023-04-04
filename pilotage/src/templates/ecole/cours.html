@@ -1,0 +1,13 @@
+{% extends 'block/base.html' %}
+
+{% block corp %}
+    <section>
+        <h2><a href="../" class="retour">Retour</a></h2>
+        <h3></h3>
+        <h2 style="text-align: center">{{ cours.titre_cours }}</h2>
+        <h4>
+            {{ cours.descriptif_cours }}
+        </h4>
+        <h2 style="text-align: center"><a href="../../../reservation/reserver/{{ cours.id_cours }}" class="retour">Faire une réservation pour ce cours</a></h2>
+    </section>
+{% endblock %}
