@@ -4,7 +4,7 @@ from script import *
 
 class Test(TestCase):
     def test_add1(self):
-        self.assertEqual(add(2, 3), 6)
+        self.assertEqual(add(2, 3), 5)
     def test_add2(self):
         self.assertEqual(add(3, 3), 6)
     def test_add3(self):
