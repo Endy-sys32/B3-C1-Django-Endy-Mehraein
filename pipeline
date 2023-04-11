@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonage du dépôt') {
+            steps {
+                git branch: 'test', url: 
+'https://github.com/Endy-sys32/B3-C1-Django-Endy-Mehraein.git'
+            }
+        }
+        stage('Tests unitaires') {
+            steps {
+                dir('pilotage/src') {
+                    sh 'python3 -m unittest tests.py'
+                }
+            }
+        }
+        success {
+            steps {
+                mail to: 'ensy.mehraein@epsi.fr', 
+                    subject: 'Construcuction réussie'
+                     body: "Le build s'est terminé avec succés" 
+            }
+        }
+        failure {
+            steps {
+                mail to: 'ensy.mehraein@epsi.fr',
+                     subject: 'Échec de la construction Jenkins', 
+                     body: "Il y a eu une erreur lors de la construction 
+du projet Jenkins. Veuillez vérifier les journaux de build pour plus 
+d'informations." // Corps du message
+            }
+        }
+    }
+}
+
