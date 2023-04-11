@@ -38,4 +38,6 @@ class Test(TestCase):
         self.assertEqual(division(3,2), 1.5)
     def test_division4(self):
         self.assertEqual(division(3, 3), 1)
+    def test_division5(self):
+        self.assertEqual(division(4, 4), 1)
 
